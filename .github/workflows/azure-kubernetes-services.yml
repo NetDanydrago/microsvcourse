@@ -62,7 +62,7 @@ jobs:
         uses: Azure/k8s-deploy@v5
         with:
           action: deploy
-          manifest: ${{ env.DEPLOYMENT_MANIFEST_PATH }}
+          manifests: ${{ env.DEPLOYMENT_MANIFEST_PATH }}
           images: |
             ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/{{ env.CONTAINER_NAME }}:${{ github.sha }}
           pull-images: false  
