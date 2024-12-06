@@ -12,7 +12,7 @@ env:
   RESOURCE_GROUP: 'blazzingpizzarg'
   CLUSTER_NAME: 'blazingpizzaaks'
   DEPLOYMENT_MANIFEST_PATH: './Deployments/GetSpecialWebApi-Deployment.yml'
-  DOCKER_PATH: './src/Northwind.BlazingPizza.GetSpecials.WebAPI/Dockerfile'
+  DOCKER_PATH: './src/NorthWind.BlazingPizza.GetSpecials.WebApi/Dockerfile'
  
 jobs:
   buildImage:
