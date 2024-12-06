@@ -72,6 +72,14 @@ namespace NorthWind.BlazingPizza.GetSpecials.Repositories.Configuration
                BasePrice = 89.99,
                Description = "Pizza italiana tradicional con tomates y albahaca",
                ImageUrl = "margherita.jpg"
+           },
+           new PizzaSpecial
+           {
+               Id = 9,
+               Name = "Margarita Especial",
+               BasePrice = 160.00,
+               Description = "Con la recete especial de la casa",
+               ImageUrl = "margherita.jpg"
            }
             ]);
         }
