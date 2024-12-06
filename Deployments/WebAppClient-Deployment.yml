@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: webappclient
+   labels:
+      app: webappclient
+spec:
+  replicas: 1
+  template:
+     metadata:
+         labels:
+            app: webappclient
+     spec:
+         nodeSelector:
+           kubernetes.io/os: linux
+         containers:
+         - name: webappclient
+           image: blazingpizzaacr1528710875.azurecr.io/webappclient:v1
+           ports:
+           - containerPort: 8080
+           env:
+           - name: ASPNETCORE_URLS
+             value: http://*:8080
+           - name: BlazingPizzaOptions__WebApiBaseAddress
+             value: http://getspecialswebapi-service:8080/
+  selector:
+     matchLabels:
+         app: webappclient
+---
+apiVersion: v1
+kind: Service
+metadata:
+   name: webappclient-service
+spec:
+    type: LoadBalancer
+    ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP
+      name: http
+    selector:
+        app: webappclient

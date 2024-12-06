@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: getspecialswebapi
+  labels:
+     app: getspecialswebapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: getspecialswebapi
+  template:
+    metadata:
+        labels:
+            app: getspecialswebapi
+    spec:
+        nodeSelector:
+          kubernetes.io/os: linux
+        containers:
+        - name: getspecialswebapi
+          image: blazingpizzaacr1528710875.azurecr.io/getspecialswebapi:v1
+          ports:
+          - containerPort: 8080
+          env:
+          - name: ASPNETCORE_URLS
+            value: http://*:8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: getspecialswebapi-service
+spec:
+    type: NodePort
+    ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
+      name: http
+    selector:
+        app: getspecialswebapi

@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+	<PropertyGroup>
+		<DockerfileTag>webappclient:latest</DockerfileTag>
+		<UserSecretsId>94b56439-9e5b-4c86-81e8-072d7bff5c52</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerfileContext>..\..</DockerfileContext>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+	</ItemGroup>
+	
+  <ItemGroup>
+    <ProjectReference Include="..\NorthWind.BlazingPizza.RazorViews\NorthWind.BlazingPizza.RazorViews.csproj" />
+  </ItemGroup>
+
+</Project>
